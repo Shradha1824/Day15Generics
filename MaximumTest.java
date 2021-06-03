@@ -21,7 +21,12 @@ public class MaximumTest {
 
 		  public static void testMaximum(String args[]) {
 			  
-			 System.out.printf(" %d, %d and %d\n Maximun integer Value is %d\n\n", 7, 4, 3, maximum(7, 4, 3));
-
+			 System.out.printf(" %d, %d and %d\n Maximun integer Value is %d\n\n", 
+						7, 4, 3, maximum(7, 4, 3));
+                         
+                         
+                         System.out.printf(" %.1f, %.1f and %.1f\n Maximum float Value is %.1f\n\n",
+			          		7.6f, 4.3f, 3.2f, maximum(7.6f, 4.3f, 3.2f));
+	    
 		  }
 	}
