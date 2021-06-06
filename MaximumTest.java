@@ -1,4 +1,15 @@
-public class MaximumTest {
+public class MaximumTest<T extends Comparable<T>>  {
+
+		  T x, y ,z;
+
+		  public MaximumTest(T x, T y, T z){
+			this.x = x;
+			this.y = y;
+			this.z = z;
+
+                  public T maximum() {
+			return MaximunTest.maximum(x, y, z);
+		  }
 
 		 // determines the largest of three Comparable objects
 		  public static <T extends Comparable<T>> T maximum(T x, T y, T z) {
@@ -18,16 +29,32 @@ public class MaximumTest {
 			  // end method maximum
 		    
 		  }
-
-		  public static void testMaximum(String args[]) {
-			  
-			 System.out.printf(" %d, %d and %d\n Maximun integer Value is %d\n\n", 
-					     7, 4, 3, maximum(7, 4, 3));
-
-                         System.out.printf(" %.1f, %.1f and %.1f\n Maximum float Value is %.1f\n\n",
-			                     7.6f, 4.3f, 3.2f, maximum(7.6f, 4.3f, 3.2f));
-	    
-                         System.out.printf(" %s, %s and %s\n Maximum String Value is %s\n", "Banana", 
-					    "Apple","Orange", maximum("Banana", "Apple", "Orange"));
+		
+		  public static String testMaximum(String x, String y, String z){
+			String max = x;
+			if(y.compareTo(mmax) > 0) {
+				max = y;
+			}
+			if(z.compareTo(max) > 0) {
+				max = z;
+			}
+			printMax(x, y, z, max);
+			return max;
 		  }
+
+		  public static <T> void printMax(T x, T y, T z, T max) {
+			System.out.printf("Max of %s, %s and %s is %s\n" , x, y, z, max);
+		  }
+
+		  public static void main(String args[]) {
+			Integer xInt = 3, yInt = 4, zInt = 5;
+			Float xFl = 6.6f, yFl = 8.8f, zFl = 7.7f;
+			String xStr = "Pear", yStr = "apple", zStr = "orange";
+
+			MaximumTest.testMaximum(xStr, yStr, xStr);
+			new MaximumTest(xInt, yInt, zInt).maximum();
+			new MaximumTest(xFl, yFl, zFl).maximum();
+			new MaximumTest(xStr, yStr, zStr).maximum();
+		 }
 	}
+
